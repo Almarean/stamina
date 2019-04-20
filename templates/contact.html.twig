@@ -8,6 +8,9 @@
             {% for message in app.flashes('success') %}
                 <div class="alert alert-success text-center mx-auto">{{ message }}</div>
             {% endfor %}
+            {% for message in app.flashes('danger') %}
+                <div class="alert alert-danger text-center mx-auto">{{ message }}</div>
+            {% endfor %}
             <p class="text-center w-responsive mx-auto mb-5">Vous avez des questions ? N'hésitez pas à nous contacter directement. Notre équipe reviendra vers vous en quelques heures pour vous aider.</p>
             <p class="text-center w-responsive mx-auto mb-5">Si un message ne s'affiche pas après avoir essayé de nous contacter, c'est qu'un problème est survenu lors de l'envoi du message.</p>
             <article>

@@ -1,0 +1,32 @@
+{% extends 'navbar.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <section class="page">
+            <article class="col-md-8 mx-auto">
+                {{ form_start(form, {'attr': {'class': 'text-center border border-light p-5'}}) }}
+                    {% if text_alert is defined and class_alert is defined %}
+                        <div class="alert {{ class_alert }} text-center mx-auto">{{ text_alert }}</div>
+                    {% endif %}
+                    <p class="h4 mb-4 brown-text">Créez un compte</p>
+                    {{ form_widget(form.name, {'attr': {'class': 'form-control mb-4', 'placeholder': 'Votre pseudo'}}) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'form-control mb-4', 'placeholder': 'Votre e-mail'}}) }}
+                    {{ form_widget(form.password.first, {'attr': {'class': 'form-control mb-4', 'placeholder': 'Mot de passe'}}) }}
+                    {{ form_widget(form.password.second, {'attr': {'class': 'form-control mb-4', 'placeholder': 'Répétez votre mot de passe'}}) }}
+                    {{ form_widget(form.submit_button, {'attr': {'class': 'btn btn-brown my-4 btn-block col-md-4 mx-auto'}}) }}
+                    <p>ou s'enregistrer avec:</p>
+                    <a type="button" class="btn-floating btn-sm rgba-white-slight mx-1">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a type="button" class="btn-floating btn-sm rgba-white-slight mx-1">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <hr>
+                    <p>En cliquant sur <em>S'enregistrer</em>, vous acceptez nos <a href="#" target="_blank" class="brown-text">termes d'utilisation</a>
+                {{ form_end(form) }}
+            </article>
+        </section>
+    </div>
+    {{ include('footer.html.twig') }}
+{% endblock %}

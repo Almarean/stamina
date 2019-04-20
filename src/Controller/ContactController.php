@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
-use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,11 +41,12 @@ class ContactController extends AbstractController
                 ->setFrom('noreply@stamina.com')
                 ->setTo('mdesligues@gmail.com')
                 ->setReplyTo($contact->getEmail())
-                ->setBody(
-                    ' > Nom : ' . ucwords(strtolower($contact->getName())) . "\n > Prénom : " . ucwords(strtolower($contact->getFirstName())) . "\n > E-mail : " . $contact->getEmail() . "\n > Message : " . $contact->getMessage(), 'text/plain');
+                ->setBody(' > Nom : ' . ucwords(strtolower($contact->getName())) . "\n > Prénom : " . ucwords(strtolower($contact->getFirstName())) . "\n > E-mail : " . $contact->getEmail() . "\n > Message : " . $contact->getMessage(), 'text/plain');
             $mailer->send($message);
             $this->addFlash('success', 'Votre e-mail nous a bien été envoyé !');
             return $this->redirectToRoute('contact');
+        } else if (!$form->isSubmitted() || !$form->isValid()) {
+            $this->addFlash('danger', 'Votre e-mail n\'a pas pu nous être envoyé...');
         }
         return $this->render('contact.html.twig', array(
             'form' => $form->createView()
