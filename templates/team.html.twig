@@ -1,0 +1,78 @@
+{% extends 'navbar.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container-fluid">
+        <section class="page">
+            <h1 class="h3 h1-responsive text-center my-5 brown-text">Découvrez notre équipe</h1>
+            <article class="mx-auto w-75 text-center">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-5 mx-auto">
+                        <div class="avatar mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-1" alt="Sample avatar">
+                        </div>
+                        <h5 class="font-weight-bold mt-4 mb-3">Vanessa Asejo</h5>
+                        <p class="text-uppercase brown-text"><strong>Design / graphismes</strong></p>
+                        <p class="grey-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium doloremque rem laudantium totam aperiam.</p>
+                        <ul class="list-unstyled mb-0">
+                            <a href="#" class="p-2 fa-lg fb-ic"><i class="fab fa-twitter blue-text"> </i></a>
+                            <a href="#" class="p-2 fa-lg ins-ic"><i class="fab fa-linkedin blue-text"> </i></a>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mx-auto">
+                        <div class="avatar mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-1" alt="Sample avatar">
+                        </div>
+                        <h5 class="font-weight-bold mt-4 mb-3">Tony Gentilini</h5>
+                        <p class="text-uppercase brown-text"><strong>Narration</strong></p>
+                        <p class="grey-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium doloremque rem laudantium totam aperiam.</p>
+                        <ul class="list-unstyled mb-0">
+                            <a href="#" class="p-2 fa-lg fb-ic"><i class="fab fa-twitter blue-text"> </i></a>
+                            <a href="#" class="p-2 fa-lg ins-ic"><i class="fab fa-linkedin blue-text"> </i></a>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mx-auto">
+                        <div class="avatar mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-1" alt="Sample avatar">
+                        </div>
+                        <h5 class="font-weight-bold mt-4 mb-3">Paul Michels</h5>
+                        <p class="text-uppercase brown-text"><strong>Développeur Unity</strong></p>
+                        <p class="grey-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium doloremque rem laudantium totam aperiam.</p>
+                        <ul class="list-unstyled mb-0">
+                            <a href="#" class="p-2 fa-lg fb-ic"><i class="fab fa-twitter blue-text"> </i></a>
+                            <a href="#" class="p-2 fa-lg ins-ic"><i class="fab fa-linkedin blue-text"> </i></a>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-5 mx-auto">
+                        <div class="avatar mx-auto">
+                            <img src="{{ asset('images/team/thomas.jpg') }}" class="rounded-circle z-depth-1"
+                                    alt="Sample avatar">
+                        </div>
+                        <h5 class="font-weight-bold mt-4 mb-3">Thomas Laure</h5>
+                        <p class="text-uppercase brown-text"><strong>Développeur web full stack</strong></p>
+                        <p class="grey-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium doloremque rem laudantium totam aperiam.</p>
+                        <ul class="list-unstyled mb-0">
+                            <a href="#" class="p-2 fa-lg fb-ic"><i class="fab fa-twitter blue-text"> </i></a>
+                            <a href="#" class="p-2 fa-lg ins-ic"><i class="fab fa-linkedin blue-text"> </i></a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-5 mx-auto">
+                        <div class="avatar mx-auto">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle z-depth-1" alt="Sample avatar">
+                        </div>
+                        <h5 class="font-weight-bold mt-4 mb-3">Nicolas Andres</h5>
+                        <p class="text-uppercase brown-text"><strong>Chef de projet / Son</strong></p>
+                        <p class="grey-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium doloremque rem laudantium totam aperiam.</p>
+                        <ul class="list-unstyled mb-0">
+                            <a href="#" class="p-2 fa-lg fb-ic"><i class="fab fa-twitter blue-text"> </i></a>
+                            <a href="#" class="p-2 fa-lg ins-ic"><i class="fab fa-linkedin blue-text"> </i></a>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+    {{ include('footer.html.twig') }}
+{% endblock %}

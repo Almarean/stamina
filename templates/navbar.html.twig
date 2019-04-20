@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <header>
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark sunny-morning-gradient fixed-top scrolling-navbar">
+            <a class="navbar-brand font-weight-bold" href="#">Stamina</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                    aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('home') }}"><i class="fas fa-home"></i> Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('team') }}"><i class="fas fa-people-carry"></i> L'équipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('items', {'typeItems': 'bestiary'}) }}"><i class="fas fa-paw"></i> Bestiaire</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('items', {'typeItems': 'zones'}) }}"><i class="fas fa-mountain"></i> Zones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="far fa-comment"></i> Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav nav-flex-icons">
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                            <a class="dropdown-item" href=""><i class="fas fa-sign-in-alt"></i> Se connecter</a>
+                            <a class="dropdown-item" href=""><i class="fas fa-user-plus"></i> Créer un compte</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+{% endblock %}

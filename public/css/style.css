@@ -1,0 +1,42 @@
+.page {
+    margin: 10rem 0;
+}
+
+.sunny-morning-gradient, .peach-gradient {
+    background-image: linear-gradient(120deg, #c68a59 0 ,#473120 100%);
+    background: linear-gradient(40deg, #c68a59, #473120) !important;
+}
+
+.home-button {
+    text-align: end;
+}
+
+.btn-brown {
+    background-color: #885f3d !important;
+}
+
+.brown-text {
+    color: #885f3d !important;
+}
+
+.parallax-title {
+    background: url('../images/content/lakeside.jpg') no-repeat scroll center 0;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 768px;
+    max-height: 1080px;
+}
+
+.parallax-content-1 {
+    background: url('../images/content/mountains_dark.jpg') no-repeat scroll center 0;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 500px;
+}
+
+.parallax-content-2 {
+    background: url('../images/content/deer_winter.jpg') no-repeat scroll center 0;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 500px;
+}
