@@ -1,0 +1,53 @@
+{% extends 'navbar.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <section class="page">
+            <h1 class="h3 h1-responsive text-center my-5 brown-text">Contactez-nous</h1>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success text-center mx-auto">{{ message }}</div>
+            {% endfor %}
+            <p class="text-center w-responsive mx-auto mb-5">Vous avez des questions ? N'hésitez pas à nous contacter directement. Notre équipe reviendra vers vous en quelques heures pour vous aider.</p>
+            <p class="text-center w-responsive mx-auto mb-5">Si un message ne s'affiche pas après avoir essayé de nous contacter, c'est qu'un problème est survenu lors de l'envoi du message.</p>
+            <article>
+                {{ form_start(form) }}
+                    <div class="col-md-6 m-auto">
+                        <div class="md-form mb-0">
+                            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.name, 'Votre nom') }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 m-auto">
+                        <div class="md-form mb-0">
+                            {{ form_widget(form.first_name, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.first_name, 'Votre prénom') }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 m-auto">
+                        <div class="md-form mb-0">
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.email, 'Votre email') }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 m-auto">
+                        <div class="md-form mb-0">
+                            {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.subject, 'Objet') }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 m-auto">
+                        <div class="md-form">
+                            {{ form_widget(form.message, {'attr': {'class': 'form-control md-textarea'}}) }}
+                            {{ form_label(form.message, 'Votre message') }}
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center m-auto">
+                        <button type="submit" class="btn btn-primary">Envoyer <i class="fas fa-paper-plane"></i></button>
+                    </div>
+                {{ form_end(form) }}
+            </article>
+        </section>
+    </div>
+    {{ include('footer.html.twig') }}
+{% endblock %}

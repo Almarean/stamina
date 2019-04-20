@@ -23,20 +23,49 @@
     background: url('../images/content/lakeside.jpg') no-repeat scroll center 0;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 768px;
-    max-height: 1080px;
+    height: 768px;
 }
 
 .parallax-content-1 {
     background: url('../images/content/mountains_dark.jpg') no-repeat scroll center 0;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 500px;
+    min-height: 200px;
 }
 
 .parallax-content-2 {
     background: url('../images/content/deer_winter.jpg') no-repeat scroll center 0;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 500px;
+    min-height: 200px;
+}
+
+@media screen and (min-height: 800px) {
+    .parallax-title {
+        height: 900px;
+    }
+
+    .parallax-content-1, .parallax-content-2 {
+        height: 400px;
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    .parallax-title {
+        height: 1080px;
+    }
+
+    .parallax-content-1, .parallax-content-2 {
+        height: 500px;
+    }
+}
+
+@media screen and (min-height: 1440px) {
+    .parallax-title {
+        height: 1440px;
+    }
+
+    .parallax-content-1, .parallax-content-2 {
+        height: 500px;
+    }
 }

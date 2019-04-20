@@ -3,7 +3,7 @@
 {% block body %}
     <header>
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark sunny-morning-gradient fixed-top scrolling-navbar">
-            <a class="navbar-brand font-weight-bold" href="#">Stamina</a>
+            <a class="navbar-brand font-weight-bold" href="{{ path('home') }}">Stamina</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
                     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
                         <a class="nav-link" href="{{ path('items', {'typeItems': 'zones'}) }}"><i class="fas fa-mountain"></i> Zones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="far fa-comment"></i> Contact</a>
+                        <a class="nav-link" href="{{ path('contact') }}"><i class="far fa-comment"></i> Contact</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav nav-flex-icons">
