@@ -45,8 +45,6 @@ class ContactController extends AbstractController
             $mailer->send($message);
             $this->addFlash('success', 'Votre e-mail nous a bien été envoyé !');
             return $this->redirectToRoute('contact');
-        } else if (!$form->isSubmitted() || !$form->isValid()) {
-            $this->addFlash('danger', 'Votre e-mail n\'a pas pu nous être envoyé...');
         }
         return $this->render('contact.html.twig', array(
             'form' => $form->createView()

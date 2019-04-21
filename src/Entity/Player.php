@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class Player.
@@ -15,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @license  https://www.gnu.org/licenses/license-list.fr.html GPL
  * @link     https://symfony.com/
  */
-class Player
+class Player implements UserInterface
 {
     /**
      * ID du joueur.
@@ -37,6 +39,8 @@ class Player
      * Adresse e-mail du joueur.
      *
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\Email()
      */
     private $email;
 
@@ -46,6 +50,25 @@ class Player
      * @ORM\Column(type="string", length=255)
      */
     private $password;
+
+    /**
+     * Mot de passe de confirmation du joueur.
+     */
+    private $repeatPassword;
+
+    /**
+     * Rôles attribués au joueur.
+     *
+     * @var array
+     */
+    private $roles = [];
+
+    /**
+     * Date de création du compte du joueur.
+     *
+     * @ORM\Column(type="date")
+     */
+    private $registrationDate;
 
     /**
      * Accesseur de l'ID du joueur.
@@ -106,7 +129,7 @@ class Player
     }
 
     /**
-     * Accesseur du mot de passe de l'utilisateur.
+     * Accesseur du mot de passe du joueur.
      *
      * @return string|null
      */
@@ -116,9 +139,9 @@ class Player
     }
 
     /**
-     * Mutateur du mot de passe de l'utilisateur.
+     * Mutateur du mot de passe du joueur.
      *
-     * @param string $password Mot de passe à attribuer à l'utilisateur.
+     * @param string $password Mot de passe à attribuer au joueur.
      *
      * @return self
      */
@@ -127,5 +150,99 @@ class Player
         $this->password = $password;
 
         return $this;
+    }
+
+    /**
+     * Accesseur du mot de passe de confirmation du joueur.
+     *
+     * @return string|null
+     */
+    public function getRepeatPassword(): ?string
+    {
+        return $this->repeatPassword;
+    }
+
+    /**
+     * Mutateur du mot de passe de confirmation du joueur.
+     *
+     * @param string $password Mot de passe de confirmation à attribuer au joueur.
+     *
+     * @return self
+     */
+    public function setRepeatPassword(string $repeatPassword): self
+    {
+        $this->repeatPassword = $repeatPassword;
+
+        return $this;
+    }
+
+    /**
+     * Accesseur de la date de création du compte du joueur.
+     *
+     * @return \DateTimeInterface|null
+     */
+    public function getRegistrationDate(): ?\DateTimeInterface
+    {
+        return $this->registrationDate;
+    }
+
+    /**
+     * Mutateur de la date de création du compte du joueur.
+     *
+     * @param \DateTimeInterface $registrationDate Date de création du compte à attribuer au joueur.
+     *
+     * @return self
+     */
+    public function setRegistrationDate(\DateTimeInterface $registrationDate): self
+    {
+        $this->registrationDate = $registrationDate;
+
+        return $this;
+    }
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
+    {
+        return (string) $this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        /*$roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+        return [array_unique($roles)];*/
+        return ['ROLE_USER'];
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }

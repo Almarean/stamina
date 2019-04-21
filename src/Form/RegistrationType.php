@@ -6,14 +6,13 @@ use App\Entity\Player;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
- * Class PlayerType.
+ * Class RegistrationType.
  *
  * @category Symfony4
  * @package  App\Form
@@ -21,7 +20,7 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
  * @license  https://www.gnu.org/licenses/license-list.fr.html GPL
  * @link     https://symfony.com/
  */
-class PlayerType extends AbstractType
+class RegistrationType extends AbstractType
 {
     /**
      * Construction du formulaire de création de joueur.
@@ -34,10 +33,9 @@ class PlayerType extends AbstractType
         $builder
             ->add('name', TextType::class)
             ->add('email', EmailType::class)
-            ->add('password', RepeatedType::class, array(
-                'type' => PasswordType::class
-            ))
-            ->add('submit_button', SubmitType::class, ['label' => 'S\'enregistrer']);
+            ->add('password', PasswordType::class)
+            ->add('repeat_password', PasswordType::class)
+            ->add('submit_button', SubmitType::class, array('label' => 'S\'enregistrer'));
     }
 
     /**

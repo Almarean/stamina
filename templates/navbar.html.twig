@@ -37,10 +37,17 @@
                             aria-expanded="false">
                             <i class="fas fa-user"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                            <a class="dropdown-item" href="#"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
-                            <a class="dropdown-item" href="{{ path('registration') }}"><i class="fas fa-user-plus"></i> Créer un compte</a>
-                        </div>
+                        {% if not app.user %}
+                            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                                <a class="dropdown-item" href="{{ path('login') }}"><i class="fas fa-sign-in-alt"></i> Connexion</a>
+                                <a class="dropdown-item" href="{{ path('registration') }}"><i class="fas fa-user-plus"></i> Créer un compte</a>
+                            </div>
+                        {% else %}
+                            <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                                <a class="dropdown-item" href="{{ path('profile') }}"><i class="fas fa-address-card"></i> Voir mon profil</a>
+                                <a class="dropdown-item" href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                            </div>
+                        {% endif %}
                     </li>
                 </ul>
             </div>
