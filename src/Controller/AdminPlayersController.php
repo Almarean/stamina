@@ -2,12 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Player;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * Class AdminDashboardController.
+ * Class AdminPlayersController.
  *
  * @category Symfony4
  * @package  App\Controller
@@ -15,17 +16,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  * @license  https://www.gnu.org/licenses/license-list.fr.html GPL
  * @link     https://symfony.com/
  */
-class AdminDashboardController extends AbstractController
+class AdminPlayersController extends AbstractController
 {
     /**
-     * Point d'entrée du tableau de bord de l'interface d'administration.
+     * Point d'entrée de l'affichage des joueurs sur l'interface d'administration.
      *
-     * @Route("/admin/dashboard", name="admin_dashboard")
+     * @Route("/admin/players", name="admin_players")
      *
      * @return Response|null
      */
     public function index(): ?Response
     {
-        return $this->render('admin_dashboard.html.twig');
+        $players = $this->getDoctrine()->getRepository(Player::class)->findByIdDesc();
+        return $this->render('admin_players.html.twig', array(
+            'players' => $players
+        ));
     }
 }

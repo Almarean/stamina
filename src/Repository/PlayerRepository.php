@@ -32,6 +32,19 @@ class PlayerRepository extends ServiceEntityRepository
         parent::__construct($registry, Player::class);
     }
 
+    /**
+     * Renvoie la liste de tous les joueurs.
+     *
+     * @return array
+     */
+    public function findByIdDesc(): array
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery();
+        return $qb->execute();
+    }
+
     // /**
     //  * @return Player[] Returns an array of Player objects
     //  */

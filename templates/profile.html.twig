@@ -3,7 +3,24 @@
 {% block body %}
     {{ parent() }}
     <div class="container">
-        <h1>Profil</h1>
+        <section class="page">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><a>{{ player.email }}</a></h4>
+                            <p class="card-text">Pseudo: {{ player.name }}</p>
+                            <p class="card-text">Date de création du compte: {{ player.registrationDate|date('d/m/Y') }}</p>
+                            <a href="#" class="btn btn-brown"><i class="fas fa-user-edit"></i> Modifier les informations</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+
+                </div>
+            </div>
+        </section>
+
     </div>
     {{ include('footer.html.twig') }}
 {% endblock %}

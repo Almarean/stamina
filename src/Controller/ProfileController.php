@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,10 +23,15 @@ class ProfileController extends AbstractController
      *
      * @Route("/profile", name="profile")
      *
+     * @param Security $security
+     *
      * @return response|null
      */
-    public function index(): ?Response
+    public function index(Security $security): ?Response
     {
-        return $this->render('profile.html.twig');
+        $player = $security->getUser();
+        return $this->render('profile.html.twig', array(
+            'player' => $player
+        ));
     }
 }

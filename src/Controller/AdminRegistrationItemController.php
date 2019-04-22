@@ -29,7 +29,7 @@ class AdminRegistrationItemController extends AbstractController
     /**
      * Point d'entrée de l'enregistrement d'items.
      *
-     * @Route("/admin/registration/{typeItem}", name="registration_item")
+     * @Route("/admin/registration/{typeItem}", name="admin_registration_item")
      *
      * @param Request $request
      * @param string $typeItem Type de l'item à enregistrer.

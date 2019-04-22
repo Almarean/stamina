@@ -6,16 +6,16 @@
         <section class="page">
             <div class="row text-center">
                 <div class="col">
-                    <a class="btn btn-brown p-5" href="{{ path('registration_item', {'typeItem': 'zone'}) }}"><i class="fas fa-plus"></i> Ajouter une zone</a>
+                    <a class="btn btn-brown p-5" href="{{ path('admin_registration_item', {'typeItem': 'zone'}) }}"><i class="fas fa-route"></i> Ajouter une zone</a>
                 </div>
                 <div class="col">
-                    <a class="btn btn-brown p-5" href="{{ path('registration_item', {'typeItem': 'monster'}) }}"><i class="fas fa-plus"></i> Ajouter un monstre</a>
+                    <a class="btn btn-brown p-5" href="{{ path('admin_registration_item', {'typeItem': 'monster'}) }}"><i class="fas fa-pastafarianism"></i> Ajouter un monstre</a>
                 </div>
                 <div class="col">
-                    <a class="btn btn-brown p-5" href="#"><i class="fas fa-users"></i> Voir les joueurs</a>
+                    <a class="btn btn-brown p-5" href="{{ path('admin_players') }}"><i class="far fa-eye"></i> Voir les joueurs</a>
                 </div>
                 <div class="col">
-                    <a class="btn btn-brown p-5" href="{{ path('registration_item', {'typeItem': 'news'}) }}"><i class="far fa-newspaper"></i> Publier une actualité</a>
+                    <a class="btn btn-brown p-5" href="{{ path('admin_registration_item', {'typeItem': 'news'}) }}"><i class="far fa-newspaper"></i> Publier une actualité</a>
                 </div>
             </div>
         </section>

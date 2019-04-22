@@ -1,0 +1,25 @@
+{% extends 'admin_navbar.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <section class="page">
+            <div class="row">
+                {% for player in players %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title"><a>{{ player.email }}</a></h4>
+                                <p class="card-text">Pseudo: {{ player.name }}</p>
+                                <p class="card-text">Date de création du compte: {{ player.registrationDate|date('d/m/Y') }}</p>
+                                <div class="text-center">
+                                    <a href="#" class="btn btn-brown"><i class="fas fa-info"></i> Informations</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+{% endblock %}
