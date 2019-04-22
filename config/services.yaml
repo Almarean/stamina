@@ -5,6 +5,11 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'fr'
+    images_monsters_directory: '%kernel.project_dir%/public/images/monsters'
+    images_zones_directory: '%kernel.project_dir%/public/images/zones'
+    images_news_directory: '%kernel.project_dir%/public/images/news'
+    images_team_directory: '%kernel.project_dir%/public/images/team'
+    images_content_directory: '%kernel.project_dir%/public/images/content'
 
 services:
     # default configuration for services in *this* file

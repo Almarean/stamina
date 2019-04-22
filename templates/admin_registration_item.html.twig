@@ -1,0 +1,71 @@
+{% extends 'admin_navbar.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <section class="page">
+            {% if type_item == 'monster' %}
+                <h1 class="h1-responsive text-center my-5">Enregistrer un monstre</h1>
+            {% elseif type_item == 'zone' %}
+                <h1 class="h1-responsive text-center my-5">Enregistrer une zone</h1>
+            {% else %}
+                <h1 class="h1-responsive text-center my-5">Publier une actualité</h1>
+            {% endif %}
+            <article class="w-75 mx-auto col-md-6">
+                {% if success_message is defined %}
+                    <div class="alert alert-success text-center">{{ success_message }}</div>
+                {% endif %}
+                {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_label(form.name, 'Nom') }}
+                        {% if errors is defined %}
+                            {% for error in errors %}
+                                {% if error.label == 'item_existence' %}
+                                    <p class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ error.message }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                                {% if errors is defined %}
+                                    {% for error in errors %}
+                                        {% if error.label == 'image' %}
+                                            <p class="text-danger"><i class="fas fa-exclamation-triangle"></i> {{ error.message }}</p>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                                {{ form_widget(form.image, {'attr': {'class': 'custom-file-input', 'id': 'inputGroupFile01'}}) }}
+                                {{ form_label(form.image, 'Importer une image', {'label_attr' : {'class': 'custom-file-label', 'for': 'inputGroupFile01'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    {% if type_item == 'news' %}
+                        <div class="form-group">
+                            {{ form_label(form.abstract, 'Résumé') }}
+                            {{ form_widget(form.abstract, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    {% endif %}
+                    <div class="form-group">
+                        {{ form_label(form.description, 'Saisir une description') }}
+                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    {% if type_item == 'monster' %}
+                        <div class="w-25 form-group">
+                            {{ form_label(form.zone, 'Choisir la zone') }}
+                            {{ form_widget(form.zone, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    {% endif %}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-brown"><i class="fas fa-save"></i> Enregistrer</button>
+                    </div>
+                {{ form_end(form) }}
+            </article>
+        </section>
+    </div>
+{% endblock %}

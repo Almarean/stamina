@@ -1,0 +1,23 @@
+{% extends 'admin_navbar.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <section class="page">
+            <div class="row text-center">
+                <div class="col">
+                    <a class="btn btn-brown p-5" href="{{ path('registration_item', {'typeItem': 'zone'}) }}"><i class="fas fa-plus"></i> Ajouter une zone</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-brown p-5" href="{{ path('registration_item', {'typeItem': 'monster'}) }}"><i class="fas fa-plus"></i> Ajouter un monstre</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-brown p-5" href="#"><i class="fas fa-users"></i> Voir les joueurs</a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-brown p-5" href="{{ path('registration_item', {'typeItem': 'news'}) }}"><i class="far fa-newspaper"></i> Publier une actualité</a>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

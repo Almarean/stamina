@@ -6,8 +6,10 @@
         <section class="page">
             {% if type_items == 'bestiary' %}
                 <h1 class="h3 h1-responsive text-center my-5 brown-text">Bestiaire</h1>
-            {% else %}
+            {% elseif type_items == 'zones' %}
                 <h1 class="h3 h1-responsive text-center my-5 brown-text">Zones</h1>
+            {% else %}
+                <h1 class="h3 h1-responsive text-center my-5 brown-text">Actualités</h1>
             {% endif %}
             <article class="my-5">
                 {% for item in items %}
@@ -15,22 +17,44 @@
                     {% if item.id % 2 == 0 %}
                         <div class="col-lg-5">
                             <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
-                                <img class="img-fluid" src="{{ asset('images/items/' ~ item.image) }}" alt="Image non chargée.">
+                                {% if type_items == 'bestiary' %}
+                                    <img class="img-fluid" src="{{ asset('images/monsters/' ~ item.image) }}" alt="Image non chargée.">
+                                {% elseif type_items == 'zones' %}
+                                    <img class="img-fluid" src="{{ asset('images/zones/' ~ item.image) }}" alt="Image non chargée.">
+                                {% else %}
+                                    <img class="img-fluid" src="{{ asset('images/news/' ~ item.image) }}" alt="Image non chargée.">
+                                {% endif %}
                                 <a><div class="mask rgba-white-slight"></div></a>
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <h3 class="font-weight-bold mb-3 brown-text"><strong>{{ item.name }}</strong></h3>
+                            {% if type_items == 'news' %}
+                                <a class="grey-text">
+                                    <h6 class="font-weight-bold mb-3"><i class="far fa-calendar-alt"></i> {{ item.date|date('d/m/Y') }}</h6>
+                                </a>
+                            {% endif %}
+                            <h3 class="font-weight-bold mb-3 brown-text"><strong>{{ item.name|upper }}</strong></h3>
                             <p>{{ item.description }}</p>
                         </div>
                     {% else %}
                         <div class="col-lg-7">
-                            <h3 class="font-weight-bold mb-3 brown-text"><strong>{{ item.name }}</strong></h3>
+                            {% if type_items == 'news' %}
+                                <a class="grey-text">
+                                    <h6 class="font-weight-bold mb-3"><i class="far fa-calendar-alt"></i> {{ item.date|date('d/m/Y') }}</h6>
+                                </a>
+                            {% endif %}
+                            <h3 class="font-weight-bold mb-3 brown-text"><strong>{{ item.name|upper }}</strong></h3>
                             <p>{{ item.description }}</p>
                         </div>
                         <div class="col-lg-5">
                             <div class="view overlay rounded z-depth-2">
-                                <img class="img-fluid" src="{{ asset('images/items/' ~ item.image) }}" alt="Image non chargée.">
+                                {% if type_items == 'bestiary' %}
+                                    <img class="img-fluid" src="{{ asset('images/monsters/' ~ item.image) }}" alt="Image non chargée.">
+                                {% elseif type_items == 'zones' %}
+                                    <img class="img-fluid" src="{{ asset('images/zones/' ~ item.image) }}" alt="Image non chargée.">
+                                {% else %}
+                                    <img class="img-fluid" src="{{ asset('images/news/' ~ item.image) }}" alt="Image non chargée.">
+                                {% endif %}
                                 <a><div class="mask rgba-white-slight"></div></a>
                             </div>
                         </div>

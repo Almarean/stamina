@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\News;
 use App\Entity\Zone;
 use App\Entity\Monster;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,9 +35,11 @@ class HomeController extends AbstractController
         $randomIdZone = rand(0, count($zones) - 1);
         $randomMonster = $monsters[$randomIdMonster];
         $randomZone = $zones[$randomIdZone];
+        $news = array_slice($this->getDoctrine()->getRepository(News::class)->findByIdDesc(), 0, 5);
         return $this->render('home.html.twig', array(
             'random_zone' => $randomZone,
-            'random_monster' => $randomMonster
+            'random_monster' => $randomMonster,
+            'news' => $news
         ));
     }
 }

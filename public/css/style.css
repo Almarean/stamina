@@ -40,12 +40,23 @@
     min-height: 200px;
 }
 
+.parallax-content-3 {
+    background: url('../images/content/skyrim_wall_cat.jpg') no-repeat scroll center 0;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 200px;
+}
+
+.text-danger {
+    margin-bottom: 0;
+}
+
 @media screen and (min-height: 800px) {
     .parallax-title {
         height: 900px;
     }
 
-    .parallax-content-1, .parallax-content-2 {
+    .parallax-content-1, .parallax-content-2, .parallax-content-3 {
         height: 400px;
     }
 }
@@ -55,7 +66,7 @@
         height: 1080px;
     }
 
-    .parallax-content-1, .parallax-content-2 {
+    .parallax-content-1, .parallax-content-2, .parallax-content-3 {
         height: 500px;
     }
 }
@@ -65,7 +76,7 @@
         height: 1440px;
     }
 
-    .parallax-content-1, .parallax-content-2 {
+    .parallax-content-1, .parallax-content-2, .parallax-content-3 {
         height: 500px;
     }
 }
