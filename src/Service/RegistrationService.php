@@ -105,7 +105,7 @@ class RegistrationService extends AbstractController
      */
     public function imageProcessing(UploadedFile $file, string $typeItem): ?string
     {
-        $imageName = $this->generateUniqueName() . '.' . $file->guessExtension();
+        $imageName = uniqid() . '.' . $file->guessExtension();
         switch ($typeItem) {
             case 'monster':
                 $file->move($this->getParameter('images_monsters_directory'), $imageName);
@@ -118,15 +118,5 @@ class RegistrationService extends AbstractController
                 break;
         }
         return $imageName;
-    }
-
-    /**
-     * Génère un nom aléatoire à partir d'un MD5.
-     *
-     * @return string|null
-     */
-    private function generateUniqueName(): ?string
-    {
-        return md5(uniqid());
     }
 }

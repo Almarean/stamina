@@ -9,10 +9,11 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 /**
  * Class NewsRepository.
  *
- * @method News|null find($id, $lockMode = null, $lockVersion = null)
- * @method News|null findOneBy(array $criteria, array $orderBy = null)
- * @method News[]    findAll()
- * @method News[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @category Symfony4
+ * @package  App\repository
+ * @author   Display Name <thomaslaure3@gmail.com>
+ * @license  https://www.gnu.org/licenses/license-list.fr.html GPL
+ * @link     https://symfony.com/
  *
  * @method Player|null find($id, $lockMode = null, $lockVersion = null)
  * @method Player|null findOneBy(array $criteria, array $orderBy = null)
