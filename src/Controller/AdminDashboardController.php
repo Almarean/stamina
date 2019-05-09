@@ -20,7 +20,7 @@ class AdminDashboardController extends AbstractController
     /**
      * Point d'entrée du tableau de bord de l'interface d'administration.
      *
-     * @Route("/admin/dashboard", name="admin_dashboard")
+     * @Route("/admin", name="admin_dashboard")
      *
      * @return Response|null
      */

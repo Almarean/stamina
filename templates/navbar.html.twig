@@ -10,7 +10,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link" href="{{ path('home') }}"><i class="fas fa-home"></i> Accueil</a>
                     </li>
                     <li class="nav-item">
@@ -21,7 +21,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('items', {'typeItems': 'news'}) }}"><i class="far fa-newspaper"></i> Actualités</a>
-                    </li>
+                    </li>-->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('contact') }}"><i class="far fa-comment"></i> Contact</a>
                     </li>
@@ -36,6 +36,9 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <i class="fas fa-user"></i>
+                            {% if app.user %}
+                                {{ app.user.name }}
+                            {% endif %}
                         </a>
                         {% if not app.user %}
                             <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">

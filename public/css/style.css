@@ -15,6 +15,14 @@
     background-color: #885f3d !important;
 }
 
+.btn-indigo {
+    background-color: #7160B3 !important;
+}
+
+.btn-light-blue {
+    background-color: #46A3B3 !important;
+}
+
 .brown-text {
     color: #885f3d !important;
 }
@@ -51,19 +59,9 @@
     margin-bottom: 0;
 }
 
-@media screen and (min-height: 800px) {
+@media screen and (min-height: 850px) {
     .parallax-title {
-        height: 900px;
-    }
-
-    .parallax-content-1, .parallax-content-2, .parallax-content-3 {
-        height: 400px;
-    }
-}
-
-@media screen and (min-height: 1000px) {
-    .parallax-title {
-        height: 1080px;
+        height: 950px;
     }
 
     .parallax-content-1, .parallax-content-2, .parallax-content-3 {
