@@ -14,6 +14,7 @@
                                 <p class="card-text">Date de création du compte: {{ player.registrationDate|date('d/m/Y') }}</p>
                                 <div class="text-center">
                                     <a href="#" class="btn btn-brown"><i class="fas fa-info"></i> Informations</a>
+                                    <a href="{{ path('admin_players_delete', { 'id': player.id }) }}" class="btn btn-brown"><i class="far fa-trash-alt"></i> Supprimer</a>
                                 </div>
                             </div>
                         </div>
