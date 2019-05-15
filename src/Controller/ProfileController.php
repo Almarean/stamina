@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\RegistrationType;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,8 +31,15 @@ class ProfileController extends AbstractController
     public function index(Security $security): ?Response
     {
         $player = $security->getUser();
-        return $this->render('profile.html.twig', array(
-            'player' => $player
-        ));
+        if ($player) {
+            return $this->render('profile.html.twig', array(
+                'player' => $player
+            ));
+        } else {
+            $form = $this->createForm(RegistrationType::class, $player);
+            return $this->render('registration.html.twig', array(
+                'form' => $form->createView()
+            ));
+        }
     }
 }
