@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use App\Entity\News;
 use App\Entity\Zone;
+use App\Entity\Contact;
 use App\Entity\Monster;
+use App\Form\ContactType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,7 +30,7 @@ class HomeController extends AbstractController
      *
      * @return Response|null
      */
-    public function index(): ?Response
+    public function index(Request $request, \Swift_Mailer $mailer): ?Response
     {
         $monsters = $this->getDoctrine()->getRepository(Monster::class)->findAll();
         $zones = $this->getDoctrine()->getRepository(Zone::class)->findAll();
@@ -36,10 +39,25 @@ class HomeController extends AbstractController
         $randomMonster = $monsters[$randomIdMonster];
         $randomZone = $zones[$randomIdZone];
         $news = array_slice($this->getDoctrine()->getRepository(News::class)->findByIdDesc(), 0, 5);
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $formData = $form->getData();
+            $message = (new \Swift_Message($contact->getSubject()))
+                ->setFrom('noreply@stamina.com')
+                ->setTo('mdesligues@gmail.com')
+                ->setReplyTo($contact->getEmail())
+                ->setBody(' > Nom : ' . ucwords(strtolower($contact->getName())) . "\n > Prénom : " . ucwords(strtolower($contact->getFirstName())) . "\n > E-mail : " . $contact->getEmail() . "\n > Message : " . $contact->getMessage(), 'text/plain');
+            $mailer->send($message);
+            $this->addFlash('success', 'Votre e-mail nous a bien été envoyé !');
+            return $this->redirectToRoute('home');
+        }
         return $this->render('home.html.twig', array(
             'random_zone' => $randomZone,
             'random_monster' => $randomMonster,
-            'news' => $news
+            'news' => $news,
+            'form' => $form->createView()
         ));
     }
 }

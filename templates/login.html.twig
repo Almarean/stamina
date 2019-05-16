@@ -6,6 +6,11 @@
         <section class="page">
             <article class="my-5">
                 <form class="text-center border border-light p-5" action="{{ path('login') }}" method="POST">
+                    <div>
+                        {% if message is defined %}
+                            <p class="text-success"><i class="fas fa-check"></i> {{ message }}</p>
+                        {% endif %}
+                    </div>
                     <p class="h4 mb-4 brown-text">Se connecter</p>
                     <input type="email" class="form-control mb-4 col-md-6 mx-auto" placeholder="Adresse e-mail" name="_username" required autofocus>
                     <input type="password" class="form-control mb-4 col-md-6 mx-auto" placeholder="Mot de passe" name="_password" required>

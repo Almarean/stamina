@@ -71,8 +71,9 @@ class RegistrationController extends AbstractController
                 $player->setPassword($encoder->encodePassword($player, $player->getPassword()));
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Vous avez bien été enregistré !');
-                return $this->redirectToRoute('registration');
+                return $this->render('login.html.twig', array(
+                    'message' => 'Vous avez bien été enregistré !'
+                ));
             } else {
                 return $this->render('registration.html.twig', array(
                     'form' => $form->createView(),

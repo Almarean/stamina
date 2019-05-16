@@ -3,7 +3,9 @@
 {% block body %}
     <header>
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark sunny-morning-gradient fixed-top scrolling-navbar">
-            <a class="navbar-brand font-weight-bold" href="{{ path('home') }}"><i class="fas fa-home"></i> Stamina</a>
+            <a class="navbar-brand font-weight-bold" href="{{ path('home') }}">
+                <img src="{{ asset('images/content/logo.png') }}" height="40px" alt="Logo Stamina">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
                     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

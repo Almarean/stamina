@@ -69,15 +69,14 @@ class AdminRegistrationItemController extends AbstractController
                 array_push($errors, $error);
             }
             if (!count($errors) > 0) {
-                $item->setName(ucwords(strtolower($item->getName())));
+                if ($typeItem === 'news') {
+                    $item->setName(strtoupper($item->getName()));
+                    $item->setdate(new \Datetime());
+                } else {
+                    $item->setName(ucwords(strtolower($item->getName())));
+                }
                 $itemImage = $service->imageProcessing($image, $typeItem);
                 $item->setImage($itemImage);
-                /*if ($typeItem === 'monster') {
-                    $item->setZone($item->getZone());
-                }*/
-                if ($typeItem === 'news') {
-                    $item->setdate(new \Datetime());
-                }
                 $manager->persist($item);
                 $manager->flush();
                 return $this->render('admin_registration_item.html.twig', array(

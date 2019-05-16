@@ -4,17 +4,17 @@
     {{ parent() }}
     <main>
         <div class="view parallax-title">
-            <div class="mask pattern-4"> <!--rgba-brown-light-->
+            <div class="mask pattern-4">
                 <div class="container flex-center text-center">
                     <div class="row mt-5">
                         <div class="col-md-12 wow fadeIn mb-3">
                             <h1 class="display-3 mb-2 wow fadeInDown animated bounceInDown" data-wow-delay="0.3s">STA<a class="brown-text font-weight-bold">MINA</a></h1>
-                            <h5 class="text-uppercase mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">STAMINA, un RPG inspiré de faits réels tournés de manière parodique. Il saura vous faire ressentir la « joie » d’être un étudiant du CNAM. Stratégie et prudence seront de mises cependant, il ne faudra pas oublier de se détendre entre deux péripéties et découvrir les secrets ainsi que les anecdotes bien cachées dans les différents donjons.</h5>
-                            <h5 class="text-uppercase mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">« Stamina, une expérience époustouflante. »  Michel  22 ans.</h5>
+                            <h5 class="mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">STAMINA, un RPG inspiré de faits réels tournés de manière parodique. Il saura vous faire ressentir la « joie » d’être un étudiant du CNAM. Stratégie et prudence seront de mises cependant, il ne faudra pas oublier de se détendre entre deux péripéties et découvrir les secrets ainsi que les anecdotes bien cachées dans les différents donjons.</h5>
                             <a class="btn btn-light-blue btn-lg wow fadeIn animated bounceInLeft" href="https://play.google.com/store/apps?hl=fr" data-wow-delay="0.4s"><i class="fab fa-google-play"></i> Télécharger le jeu</a>
-                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="team-button" data-wow-delay="0.4s"><i class="fas fa-people-carry"></i> Voir l'équipe</button>
-                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="news-button" data-wow-delay="0.4s"><i class="far fa-newspaper"></i> Voir les actualités</button>
-                            <a href="{{ path('contact') }}" class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" data-wow-delay="0.4s"><i class="fas fa-comment-dots"></i> Contact</a>
+                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="team-button" data-wow-delay="0.4s"><i class="fas fa-people-carry"></i></button>
+                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="news-button" data-wow-delay="0.4s"><i class="far fa-newspaper"></i></button>
+                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="contact-button" data-wow-delay="0.4s"><i class="fas fa-comment-dots"></i></button>
+                            <h5 class="text-uppercase mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">« Stamina, une expérience époustouflante. »  Kévin  22 ans.</h5>
                         </div>
                     </div>
                 </div>
@@ -145,6 +145,58 @@
                             </ul>
                         </div>
                     </div>
+                </article>
+            </section>
+        </div>
+        <div class="view parallax-content-4"></div>
+        <div class="container-fluid mb-5" id="contact">
+            <section>
+                <h1 class="h3 h1-responsive text-center my-5 brown-text">Contactez-nous</h1>
+                <article class="w-75 mx-auto">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success text-center mx-auto">{{ message }}</div>
+                    {% endfor %}
+                    {% for message in app.flashes('danger') %}
+                        <div class="alert alert-danger text-center mx-auto">{{ message }}</div>
+                    {% endfor %}
+                    <p class="text-center w-responsive mx-auto mb-5">Vous avez des questions ? N'hésitez pas à nous contacter directement. Notre équipe reviendra vers vous en quelques heures pour vous aider.</p>
+                    <p class="text-center w-responsive mx-auto mb-5">Si un message ne s'affiche pas après avoir essayé de nous contacter, c'est qu'un problème est survenu lors de l'envoi du message.</p>
+                    <article>
+                    {{ form_start(form) }}
+                        <div class="col-md-6 m-auto">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_label(form.name, 'Votre nom') }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 m-auto">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.first_name, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_label(form.first_name, 'Votre prénom') }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 m-auto">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_label(form.email, 'Votre email') }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 m-auto">
+                            <div class="md-form mb-0">
+                                {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+                                {{ form_label(form.subject, 'Objet') }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 m-auto">
+                            <div class="md-form">
+                                {{ form_widget(form.message, {'attr': {'class': 'form-control md-textarea'}}) }}
+                                {{ form_label(form.message, 'Votre message') }}
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center m-auto">
+                            <button type="submit" class="btn btn-primary">Envoyer <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    {{ form_end(form) }}
                 </article>
             </section>
         </div>

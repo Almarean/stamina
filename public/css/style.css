@@ -55,6 +55,13 @@
     min-height: 200px;
 }
 
+.parallax-content-4 {
+    background: url('../images/content/forest.jpg') no-repeat scroll center 0;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 200px;
+}
+
 .text-danger {
     margin-bottom: 0;
 }
@@ -64,7 +71,7 @@
         height: 950px;
     }
 
-    .parallax-content-1, .parallax-content-2, .parallax-content-3 {
+    .parallax-content-1, .parallax-content-2, .parallax-content-3, .parallax-content-4 {
         height: 500px;
     }
 }
@@ -74,7 +81,7 @@
         height: 1440px;
     }
 
-    .parallax-content-1, .parallax-content-2, .parallax-content-3 {
+    .parallax-content-1, .parallax-content-2, .parallax-content-3, .parallax-content-4 {
         height: 500px;
     }
 }
