@@ -4,17 +4,19 @@
     {{ parent() }}
     <main>
         <div class="view parallax-title">
-            <div class="mask pattern-4">
+            <div class="mask"> <!--pattern-4-->
                 <div class="container flex-center text-center">
                     <div class="row mt-5">
                         <div class="col-md-12 wow fadeIn mb-3">
-                            <h1 class="display-3 mb-2 wow fadeInDown animated bounceInDown" data-wow-delay="0.3s">STA<a class="brown-text font-weight-bold">MINA</a></h1>
+                            <img class="logo" src="{{ asset('images/content/logo.png') }}" alt="Logo de Stamina">
                             <h5 class="mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">STAMINA, un RPG inspiré de faits réels tournés de manière parodique. Il saura vous faire ressentir la « joie » d’être un étudiant du CNAM. Stratégie et prudence seront de mises cependant, il ne faudra pas oublier de se détendre entre deux péripéties et découvrir les secrets ainsi que les anecdotes bien cachées dans les différents donjons.</h5>
-                            <a class="btn btn-light-blue btn-lg wow fadeIn animated bounceInLeft" href="https://play.google.com/store/apps?hl=fr" data-wow-delay="0.4s"><i class="fab fa-google-play"></i> Télécharger le jeu</a>
-                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="team-button" data-wow-delay="0.4s"><i class="fas fa-people-carry"></i></button>
-                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="news-button" data-wow-delay="0.4s"><i class="far fa-newspaper"></i></button>
-                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="contact-button" data-wow-delay="0.4s"><i class="fas fa-comment-dots"></i></button>
-                            <h5 class="text-uppercase mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">« Stamina, une expérience époustouflante. »  Kévin  22 ans.</h5>
+                            <div class="m-5">
+                                <a class="btn btn-light-blue btn-lg wow fadeIn animated bounceInLeft" href="https://play.google.com/store/apps?hl=fr" data-wow-delay="0.4s"><i class="fab fa-google-play"></i> Télécharger le jeu</a>
+                                <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="team-button" data-wow-delay="0.4s"><i class="fas fa-people-carry"></i></button>
+                                <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="news-button" data-wow-delay="0.4s"><i class="fas fa-newspaper"></i></button>
+                                <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="contact-button" data-wow-delay="0.4s"><i class="fas fa-comment-dots"></i></button>
+                            </div>
+                            <h5 class="mb-3 mt-1 wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">« Stamina, une expérience époustouflante. »  Kévin  22 ans.</h5>
                         </div>
                     </div>
                 </div>
@@ -22,17 +24,21 @@
         </div>
         <div class="container" id="news">
             <div class="row my-5">
-                <h3 class="h1 font-weight-bold brown-text my-auto m-2"><strong>Actualités</strong></h3>
-                <div class="list-group mx-auto w-75">
-                    {% for new in news %}
-                        <a href="{{ path('items', {'typeItems': 'news'}) }}" class="list-group-item list-group-item-action flex-column align-items-start">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-2 h5">{{ new.name }}</h5>
-                                <small>{{ new.date|date('d/m/Y') }}</small>
-                            </div>
-                            <p class="mb-2">{{ new.abstract }}</p>
-                        </a>
-                    {% endfor %}
+                <div class="row mx-auto col-md-12">
+                    <div class="col-md-4 my-auto">
+                        <h3 class="h1 font-weight-bold brown-text m-2"><strong>Actualités</strong></h3>
+                    </div>
+                    <div class="list-group col-md-8 mx-auto">
+                        {% for new in news %}
+                            <a href="{{ path('items', {'typeItems': 'news'}) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-2 h5">{{ new.name }}</h5>
+                                    <small>{{ new.date|date('d/m/Y') }}</small>
+                                </div>
+                                <p class="mb-2">{{ new.abstract }}</p>
+                            </a>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

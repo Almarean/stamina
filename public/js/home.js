@@ -10,5 +10,5 @@ newsButton.onclick = () => {
 
 let contactButton = document.getElementById('contact-button');
 contactButton.onclick = () => {
-    document.getElementById('contact').scrollIntoView({ behaviour: 'smooth', block: 'center' });
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
