@@ -69,3 +69,8 @@
         </section>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/stamina_admin.js') }}"></script>
+{% endblock %}
