@@ -52,6 +52,14 @@ class HomeController extends AbstractController
             $mailer->send($message);
             $this->addFlash('success', 'Votre e-mail nous a bien été envoyé !');
             return $this->redirectToRoute('home');
+            /*return $this->render('home.html.twig', array(
+                'random_zone' => $randomZone,
+                'random_monster' => $randomMonster,
+                'news' => $news,
+                'form' => $form->createView(),
+                'class_alert' => 'alert-success',
+                'text_alert' => 'Votre e-mail nous a bien été envoyé !'
+            ));*/
         }
         return $this->render('home.html.twig', array(
             'random_zone' => $randomZone,

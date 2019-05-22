@@ -78,7 +78,7 @@
 
 @media screen and (min-height: 850px) {
     .logo {
-        height: 300px;
+        height: 200px;
     }
 
     .parallax-title {
@@ -86,15 +86,11 @@
     }
 
     .parallax-content-1, .parallax-content-2, .parallax-content-3, .parallax-content-4 {
-        height: 500px;
+        height: 400px;
     }
 }
 
 @media screen and (min-height: 1440px) {
-    .logo {
-        height: auto;
-    }
-
     .parallax-title {
         height: 1440px;
     }
