@@ -12,6 +12,14 @@
     background: linear-gradient(40deg, #c68a59, #473120) !important;
 }
 
+.title-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 4em;
+}
+
 .home-button {
     text-align: end;
 }
