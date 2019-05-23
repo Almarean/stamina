@@ -32,13 +32,6 @@ class HomeController extends AbstractController
      */
     public function index(Request $request, \Swift_Mailer $mailer): ?Response
     {
-        $monsters = $this->getDoctrine()->getRepository(Monster::class)->findAll();
-        $zones = $this->getDoctrine()->getRepository(Zone::class)->findAll();
-        $randomIdMonster = rand(0, count($monsters) - 1);
-        $randomIdZone = rand(0, count($zones) - 1);
-        $randomMonster = $monsters[$randomIdMonster];
-        $randomZone = $zones[$randomIdZone];
-        $news = array_slice($this->getDoctrine()->getRepository(News::class)->findByIdDesc(), 0, 5);
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
@@ -52,19 +45,11 @@ class HomeController extends AbstractController
             $mailer->send($message);
             $this->addFlash('success', 'Votre e-mail nous a bien été envoyé !');
             return $this->redirectToRoute('home');
-            /*return $this->render('home.html.twig', array(
-                'random_zone' => $randomZone,
-                'random_monster' => $randomMonster,
-                'news' => $news,
-                'form' => $form->createView(),
-                'class_alert' => 'alert-success',
-                'text_alert' => 'Votre e-mail nous a bien été envoyé !'
-            ));*/
         }
         return $this->render('home.html.twig', array(
-            'random_zone' => $randomZone,
-            'random_monster' => $randomMonster,
-            'news' => $news,
+            'zones' => $this->getDoctrine()->getRepository(Zone::class)->findAll(),
+            'monsters' => $this->getDoctrine()->getRepository(Monster::class)->findAll(),
+            'news' => array_slice($this->getDoctrine()->getRepository(News::class)->findByIdDesc(), 0, 5),
             'form' => $form->createView()
         ));
     }

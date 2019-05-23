@@ -4,21 +4,29 @@
     {{ parent() }}
     <main>
         <div class="view parallax-title">
-            <div class="mask rgba-brown-strong">
+            <div class="mask rgba-black-light">
                 <div class="container flex-center text-center">
                     <div class="row mt-5">
                         <div class="col-md-12 wow fadeIn mb-3">
                             <img class="logo mb-5" src="{{ asset('images/content/logo.png') }}" alt="Logo de Stamina">
-                            <h5 class="mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">STAMINA, un RPG inspiré de faits réels tournés de manière parodique. Il saura vous faire ressentir la « joie » d’être un étudiant du CNAM. Stratégie et prudence seront de mises cependant, il ne faudra pas oublier de se détendre entre deux péripéties et découvrir les secrets ainsi que les anecdotes bien cachées dans les différents donjons.</h5>
-                            <div class="m-5">
+                            <h4 class="mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">Un RPG inspiré de faits réels tournés de manière parodique. Il saura vous faire ressentir la « joie » d’être un étudiant du CNAM. Stratégie et prudence seront de mises cependant, il ne faudra pas oublier de se détendre entre deux péripéties et découvrir les secrets ainsi que les anecdotes bien cachées dans les différents donjons.</h4>
+                            <div class="m-5 d-flex justify-content-center">
                                 <div class="col">
-                                    <a class="btn btn-light-blue btn-lg wow fadeIn animated bounceInLeft" href="https://play.google.com/store/apps?hl=fr" data-wow-delay="0.4s"><i class="fab fa-google-play"></i> Télécharger le jeu</a>
-                                    <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="team-button" data-wow-delay="0.4s"><i class="fas fa-people-carry"></i></button>
-                                    <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="news-button" data-wow-delay="0.4s"><i class="fas fa-newspaper"></i></button>
-                                    <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="contact-button" data-wow-delay="0.4s"><i class="fas fa-comment-dots"></i></button>
+                                    <div class="row mb-3">
+                                        <div class="col">
+                                            <a class="btn btn-light-blue btn-lg wow fadeIn animated bounceInLeft" href="https://play.google.com/store/apps?hl=fr" data-wow-delay="0.4s"><i class="fab fa-google-play"></i> Télécharger le jeu</a>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col">
+                                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="team-button" data-wow-delay="0.4s"><i class="fas fa-people-carry"></i> L'équipe</button>
+                                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="news-button" data-wow-delay="0.4s"><i class="fas fa-newspaper"></i> Actualités</button>
+                                            <button class="btn btn-indigo btn-lg wow fadeIn animated bounceInRight" id="contact-button" data-wow-delay="0.4s"><i class="fas fa-comment-dots"></i> Contact</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <h5 class="mb-3 mt-1 wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">« Stamina, une expérience époustouflante. »  Kévin  22 ans.</h5>
+                            <h5 class="mb-3 mt-1 wow fadeIn text-white animated slow delay-1s text-monospace" data-wow-delay="0.4s">« Stamina, une expérience époustouflante. » Kévin 22 ans.</h5>
                         </div>
                     </div>
                 </div>
@@ -32,7 +40,8 @@
                     </div>
                     <div class="list-group col-md-8 mx-auto">
                         {% for new in news %}
-                            <a href="{{ path('items', {'typeItems': 'news'}) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <a href="{{ path('items', {'typeItems': 'news'}) }}"
+                                class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-2 h5">{{ new.name }}</h5>
                                     <small>{{ new.date|date('d/m/Y') }}</small>
@@ -46,42 +55,104 @@
         </div>
         <div class="view parallax-content-1"></div>
         <div class="container">
-            <div class="row">
-                <div class="row col-md-12 mx-auto my-5">
-                    <div class="col-lg-5">
-                        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
-                            <img class="img-fluid" src="{{ asset('images/zones/' ~ random_zone.image) }}" alt="Image non chargée.">
-                            <a href="{{ path('items', {'typeItems': 'zones'}) }}"><div class="mask rgba-white-slight"></div></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <h3 class="h1 font-weight-bold brown-text"><strong>{{ random_zone.name }}</strong></h3>
-                        <p>{{ random_zone.description }}</p>
-                        <div class="home-button">
-                            <a class="btn btn-brown btn-lg wow fadeIn waves-effect waves-light" href="{{ path('items', {'typeItems': 'zones'}) }}">Plus de zones <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+            <div id="carousel-zones" class="carousel slide carousel-fade m-5" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {% for i in 1..zones|length %}
+                        {% if loop.index == 0 %}
+                            <li data-target="#carousel-zones" data-slide-to="{{ i }}" class="active"></li>
+                        {% else %}
+                            <li data-target="#carousel-zones" data-slide-to="{{ i }}"></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    {% for zone in zones %}
+                        {% if loop.index == 1 %}
+                            <div class="carousel-item active">
+                                <div class="view">
+                                    <img class="d-block w-100" src="{{ asset('images/zones/' ~ zone.image) }}"
+                                        alt="Second slide">
+                                    <div class="mask rgba-black-strong"></div>
+                                </div>
+                                <div class="carousel-caption">
+                                    <h3 class="h3-responsive">{{ zone.name }}</h3>
+                                    <p>{{ zone.description }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="carousel-item">
+                                <div class="view">
+                                    <img class="d-block w-100" src="{{ asset('images/zones/' ~ zone.image) }}"
+                                        alt="Second slide">
+                                    <div class="mask rgba-black-strong"></div>
+                                </div>
+                                <div class="carousel-caption">
+                                    <h3 class="h3-responsive">{{ zone.name }}</h3>
+                                    <p>{{ zone.description }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
+                <a class="carousel-control-prev" href="#carousel-zones" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-zones" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
         <div class="view parallax-content-2"></div>
         <div class="container">
-            <div class="row">
-                <div class="row col-md-12 mx-auto my-5">
-                    <div class="col-lg-5">
-                        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
-                            <img class="img-fluid" src="{{ asset('images/monsters/' ~ random_monster.image) }}" alt="Image non chargée.">
-                            <a href="{{ path('items', {'typeItems': 'bestiary'}) }}"><div class="mask rgba-white-slight"></div></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <h3 class="h1 font-weight-bold brown-text"><strong>{{ random_monster.name }}</strong></h3>
-                        <p>{{ random_monster.description }}</p>
-                        <div class="home-button">
-                            <a class="btn btn-brown btn-lg wow fadeIn waves-effect waves-light" href="{{ path('items', {'typeItems': 'bestiary'}) }}">Bestiaire <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+            <div id="carousel-monsters" class="carousel slide carousel-fade m-5" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {% for i in 1..monsters|length %}
+                        {% if loop.index == 0 %}
+                            <li data-target="#carousel-monsters" data-slide-to="{{ i }}" class="active"></li>
+                        {% else %}
+                            <li data-target="#carousel-monsters" data-slide-to="{{ i }}"></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    {% for monster in monsters %}
+                        {% if loop.index == 1 %}
+                            <div class="carousel-item active">
+                                <div class="view">
+                                    <img class="d-block w-100" src="{{ asset('images/monsters/' ~ monster.image) }}"
+                                        alt="Second slide">
+                                    <div class="mask rgba-black-strong"></div>
+                                </div>
+                                <div class="carousel-caption">
+                                    <h3 class="h3-responsive">{{ monster.name }}</h3>
+                                    <p>{{ monster.description }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="carousel-item">
+                                <div class="view">
+                                    <img class="d-block w-100" src="{{ asset('images/monsters/' ~ monster.image) }}"
+                                        alt="Second slide">
+                                    <div class="mask rgba-black-strong"></div>
+                                </div>
+                                <div class="carousel-caption">
+                                    <h3 class="h3-responsive">{{ monster.name }}</h3>
+                                    <p>{{ monster.description }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
+                <a class="carousel-control-prev" href="#carousel-monsters" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-monsters" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
         </div>
         <div class="view parallax-content-3"></div>
@@ -170,42 +241,42 @@
                     <p class="text-center w-responsive mx-auto mb-5">Vous avez des questions ? N'hésitez pas à nous contacter directement. Notre équipe reviendra vers vous en quelques heures pour vous aider.</p>
                     <p class="text-center w-responsive mx-auto mb-5">Si un message ne s'affiche pas après avoir essayé de nous contacter, c'est qu'un problème est survenu lors de l'envoi du message.</p>
                     <article>
-                    {{ form_start(form) }}
-                        <div class="col-md-6 m-auto">
-                            <div class="md-form mb-0">
-                                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
-                                {{ form_label(form.name, 'Votre nom') }}
+                        {{ form_start(form) }}
+                            <div class="col-md-6 m-auto">
+                                <div class="md-form mb-0">
+                                    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_label(form.name, 'Votre nom') }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 m-auto">
-                            <div class="md-form mb-0">
-                                {{ form_widget(form.first_name, {'attr': {'class': 'form-control'}}) }}
-                                {{ form_label(form.first_name, 'Votre prénom') }}
+                            <div class="col-md-6 m-auto">
+                                <div class="md-form mb-0">
+                                    {{ form_widget(form.first_name, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_label(form.first_name, 'Votre prénom') }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 m-auto">
-                            <div class="md-form mb-0">
-                                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-                                {{ form_label(form.email, 'Votre email') }}
+                            <div class="col-md-6 m-auto">
+                                <div class="md-form mb-0">
+                                    {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_label(form.email, 'Votre email') }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 m-auto">
-                            <div class="md-form mb-0">
-                                {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
-                                {{ form_label(form.subject, 'Objet') }}
+                            <div class="col-md-6 m-auto">
+                                <div class="md-form mb-0">
+                                    {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_label(form.subject, 'Objet') }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 m-auto">
-                            <div class="md-form">
-                                {{ form_widget(form.message, {'attr': {'class': 'form-control md-textarea'}}) }}
-                                {{ form_label(form.message, 'Votre message') }}
+                            <div class="col-md-6 m-auto">
+                                <div class="md-form">
+                                    {{ form_widget(form.message, {'attr': {'class': 'form-control md-textarea'}}) }}
+                                    {{ form_label(form.message, 'Votre message') }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 text-center m-auto">
-                            <button type="submit" class="btn btn-primary">Envoyer <i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    {{ form_end(form) }}
-                </article>
+                            <div class="col-md-6 text-center m-auto">
+                                <button type="submit" class="btn btn-primary">Envoyer <i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        {{ form_end(form) }}
+                    </article>
             </section>
         </div>
     </main>

@@ -28,9 +28,9 @@
     background-color: #46A3B3 !important;
 }
 
-.btn.btn-lg {
+.btn.btn-lg, .btn-primary {
     padding: 1rem;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
 }
 
 .brown-text {
@@ -74,6 +74,10 @@
 
 .text-danger {
     margin-bottom: 0;
+}
+
+#contact-button, #team-button, #news-button {
+    text-transform: inherit !important;
 }
 
 @media screen and (min-height: 850px) {
