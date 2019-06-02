@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Player extends User.
@@ -20,6 +19,13 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Player extends User
 {
     /**
+     * Date de création du compte du joueur.
+     *
+     * @ORM\Column(type="date")
+     */
+    private $registrationDate;
+
+    /**
      * Rôles attribués au joueur.
      *
      * @ORM\Column(type="json")
@@ -29,11 +35,28 @@ class Player extends User
     private $roles = [];
 
     /**
-     * Date de création du compte du joueur.
+     * Accesseur de la date de création du compte du joueur.
      *
-     * @ORM\Column(type="date")
+     * return date
      */
-    private $registrationDate;
+    public function getRegistrationDate(): \Datetime
+    {
+        return $this->registrationDate;
+    }
+
+    /**
+     * Mutateur de la date de création du compte du joueur.
+     *
+     * @param date $registrationDate Date de création de compte à attribuer au joueur.
+     *
+     * @return self
+     */
+    public function setRegistrationDate(\Datetime $registrationDate): self
+    {
+        $this->registrationDate = $registrationDate;
+
+        return $this;
+    }
 
     /**
      * Accesseur des rôles du joueur.

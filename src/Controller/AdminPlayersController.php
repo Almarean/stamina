@@ -49,8 +49,6 @@ class AdminPlayersController extends AbstractController
         $player = $this->getDoctrine()->getRepository(Player::class)->find($id);
         $manager->remove($player);
         $manager->flush();
-        return $this->render('admin_players.html.twig', array(
-            'players' => $players
-        ));
+        return $this->redirectToRoute('admin_players');
     }
 }

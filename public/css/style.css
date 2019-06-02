@@ -17,7 +17,6 @@
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    font-size: 4em;
 }
 
 .home-button {
@@ -88,6 +87,10 @@
     text-transform: inherit !important;
 }
 
+h4, .h4 {
+    font-size: 1.3rem;
+}
+
 @media screen and (min-height: 850px) {
     .logo {
         height: 200px;
@@ -100,6 +103,14 @@
     .parallax-content-1, .parallax-content-2, .parallax-content-3, .parallax-content-4 {
         height: 400px;
     }
+
+    .title-item {
+        font-size: 3rem;
+    }
+
+    h4, .h4 {
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (min-height: 1440px) {
@@ -109,5 +120,13 @@
 
     .parallax-content-1, .parallax-content-2, .parallax-content-3, .parallax-content-4 {
         height: 500px;
+    }
+
+    .title-item {
+        font-size: 4rem;
+    }
+
+    h4, .h4 {
+        font-size: 1.5rem;
     }
 }

@@ -30,7 +30,7 @@
                             </div>
                         {% elseif is_granted('ROLE_ADMIN') %}
                             <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
-                                <a class="dropdown-item" href="{{ path('admin_dashboard') }}"><i class="fas fa-columns"></i> Dashboard</a>
+                                <a class="dropdown-item" href="{{ path('admin_dashboard') }}"><i class="fas fa-columns"></i> Tableau de bord</a>
                                 <a class="dropdown-item" href="{{ path('logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                             </div>
                         {% else %}

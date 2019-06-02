@@ -24,3 +24,14 @@ if (contactAlert) {
         containerAlert.removeChild(containerAlert.getElementsByClassName('alert')[0]);
     }, 10000);
 }
+
+// Gère la visibilité de certains éléments sur la page en fonction de la taille de l'écran.
+if (screen.width < 768) {
+    document.querySelectorAll('.item-description').forEach(description => {
+        description.remove();
+    });
+    document.getElementById('comment').remove();
+    document.getElementById('news-button').remove();
+    document.getElementById('team-button').remove();
+    document.getElementById('contact-button').remove();
+}

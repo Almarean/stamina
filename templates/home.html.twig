@@ -8,7 +8,7 @@
                 <div class="container flex-center text-center">
                     <div class="row mt-5">
                         <div class="col-md-12 wow fadeIn mb-3">
-                            <h1><img class="logo mb-5" src="{{ asset('images/content/logo.png') }}" alt="Logo de Stamina"></h1>
+                            <h1><img class="logo mb-5" src="{{ asset('images/content/logo.svg') }}" alt="Logo de Stamina"></h1>
                             <h4 class="mb-3 mt-1 font-weight-bold wow fadeIn text-white animated slow delay-1s" data-wow-delay="0.4s">Un RPG inspiré de faits réels tournés de manière parodique. Il saura vous faire ressentir la « joie » d’être un étudiant du CNAM. Stratégie et prudence seront de mises cependant, il ne faudra pas oublier de se détendre entre deux péripéties et découvrir les secrets ainsi que les anecdotes bien cachées dans les différents donjons.</h4>
                             <div class="m-5 d-flex justify-content-center">
                                 <div class="col">
@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h5 class="mb-3 mt-1 wow fadeIn text-white animated slow delay-1s text-monospace" data-wow-delay="0.4s">« Stamina, une expérience époustouflante. » Kévin 22 ans.</h5>
+                            <h5 class="mb-3 mt-1 wow fadeIn text-white animated slow delay-1s text-monospace" id="comment" data-wow-delay="0.4s">« Stamina, une expérience époustouflante. » Kévin 22 ans.</h5>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
             <h2 class="h3 h1-responsive text-white title-item">Environnements</h2>
         </div>
         <div class="container">
-            <div id="carousel-zones" class="carousel slide carousel-fade m-5" data-ride="carousel">
+            <div id="carousel-zones" class="carousel slide carousel-fade my-5" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% for i in 0..zones|length - 1 %}
                         {% if loop.index == 1 %}
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="carousel-caption">
                                     <h3 class="h3-responsive">{{ zone.name }}</h3>
-                                    <p>{{ zone.description }}</p>
+                                    <p class="item-description">{{ zone.description }}</p>
                                 </div>
                             </div>
                         {% else %}
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="carousel-caption">
                                     <h3 class="h3-responsive">{{ zone.name }}</h3>
-                                    <p>{{ zone.description }}</p>
+                                    <p class="item-description">{{ zone.description }}</p>
                                 </div>
                             </div>
                         {% endif %}
@@ -110,7 +110,7 @@
             <h2 class="h3 h1-responsive text-white title-item">Créatures</h2>
         </div>
         <div class="container">
-            <div id="carousel-monsters" class="carousel slide carousel-fade m-5" data-ride="carousel">
+            <div id="carousel-monsters" class="carousel slide carousel-fade my-5" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% for i in 0..monsters|length - 1 %}
                         {% if loop.index == 1 %}
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="carousel-caption">
                                     <h3 class="h3-responsive">{{ monster.name }}</h3>
-                                    <p>{{ monster.description }}</p>
+                                    <p class="item-description">{{ monster.description }}</p>
                                 </div>
                             </div>
                         {% else %}
@@ -143,7 +143,7 @@
                                 </div>
                                 <div class="carousel-caption">
                                     <h3 class="h3-responsive">{{ monster.name }}</h3>
-                                    <p>{{ monster.description }}</p>
+                                    <p class="item-description">{{ monster.description }}</p>
                                 </div>
                             </div>
                         {% endif %}
