@@ -2,10 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\News;
-use App\Entity\Zone;
 use App\Entity\Contact;
 use App\Entity\Monster;
+use App\Entity\News;
+use App\Entity\Zone;
 use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

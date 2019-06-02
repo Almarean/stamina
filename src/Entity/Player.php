@@ -37,9 +37,9 @@ class Player extends User
     /**
      * Accesseur de la date de création du compte du joueur.
      *
-     * return date
+     * @return \DateTimeInterface|null
      */
-    public function getRegistrationDate(): \Datetime
+    public function getRegistrationDate(): ?\DateTimeInterface
     {
         return $this->registrationDate;
     }
@@ -47,11 +47,11 @@ class Player extends User
     /**
      * Mutateur de la date de création du compte du joueur.
      *
-     * @param date $registrationDate Date de création de compte à attribuer au joueur.
+     * @param \DateTimeInterface $registrationDate Date de création de compte à attribuer au joueur.
      *
      * @return self
      */
-    public function setRegistrationDate(\Datetime $registrationDate): self
+    public function setRegistrationDate(\DateTimeInterface $registrationDate): self
     {
         $this->registrationDate = $registrationDate;
 
@@ -66,7 +66,6 @@ class Player extends User
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
         return array_unique($roles);
     }

@@ -2,10 +2,10 @@
 
 namespace App\Service;
 
-use App\Entity\News;
-use App\Entity\Zone;
-use App\Entity\Player;
 use App\Entity\Monster;
+use App\Entity\News;
+use App\Entity\Player;
+use App\Entity\Zone;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 

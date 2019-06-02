@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Monster;
 use App\Entity\News;
 use App\Entity\Zone;
-use App\Entity\Monster;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
