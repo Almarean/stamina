@@ -1209,6 +1209,7 @@
         },
         {
             "name": "egulias/email-validator",
+<<<<<<< HEAD
             "version": "2.1.11",
             "source": {
                 "type": "git",
@@ -1219,6 +1220,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/92dd169c32f6f55ba570c309d83f5209cefb5e23",
                 "reference": "92dd169c32f6f55ba570c309d83f5209cefb5e23",
+=======
+            "version": "2.1.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egulias/EmailValidator.git",
+                "reference": "a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec",
+                "reference": "a6c8d7101b19a451c1707b1b79bbbc56e4bdb7ec",
+>>>>>>> a60262b8397615ecf3489222d5a99739acb1b495
                 "shasum": ""
             },
             "require": {
@@ -1263,7 +1276,11 @@
                 "validation",
                 "validator"
             ],
+<<<<<<< HEAD
             "time": "2019-08-13T17:33:27+00:00"
+=======
+            "time": "2019-07-19T20:52:08+00:00"
+>>>>>>> a60262b8397615ecf3489222d5a99739acb1b495
         },
         {
             "name": "fig/link-util",
@@ -2387,6 +2404,7 @@
         },
         {
             "name": "symfony/contracts",
+<<<<<<< HEAD
             "version": "v1.1.6",
             "source": {
                 "type": "git",
@@ -2397,6 +2415,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/contracts/zipball/3692662d26cd9d204a69748792ae021c35313610",
                 "reference": "3692662d26cd9d204a69748792ae021c35313610",
+=======
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/contracts.git",
+                "reference": "3f3f796d5f24a098a9da62828b8daa1b11494c1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/contracts/zipball/3f3f796d5f24a098a9da62828b8daa1b11494c1b",
+                "reference": "3f3f796d5f24a098a9da62828b8daa1b11494c1b",
+>>>>>>> a60262b8397615ecf3489222d5a99739acb1b495
                 "shasum": ""
             },
             "require": {
@@ -2460,6 +2490,7 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
             "time": "2019-08-21T15:14:41+00:00"
         },
         {
@@ -2474,6 +2505,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/debug/zipball/f832ecacfb00688b498eedf9b10784e401d969a6",
                 "reference": "f832ecacfb00688b498eedf9b10784e401d969a6",
+=======
+            "time": "2019-06-20T06:46:26+00:00"
+        },
+        {
+            "name": "symfony/debug",
+            "version": "v4.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/debug.git",
+                "reference": "d8f4fb38152e0eb6a433705e5f661d25b32c5fcd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/d8f4fb38152e0eb6a433705e5f661d25b32c5fcd",
+                "reference": "d8f4fb38152e0eb6a433705e5f661d25b32c5fcd",
+>>>>>>> a60262b8397615ecf3489222d5a99739acb1b495
                 "shasum": ""
             },
             "require": {
@@ -2489,7 +2536,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.3-dev"
                 }
             },
             "autoload": {
@@ -2516,7 +2563,11 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-07-23T09:50:15+00:00"
+=======
+            "time": "2019-06-19T15:27:09+00:00"
+>>>>>>> a60262b8397615ecf3489222d5a99739acb1b495
         },
         {
             "name": "symfony/dependency-injection",
@@ -6034,6 +6085,7 @@
         },
         {
             "name": "symfony/maker-bundle",
+<<<<<<< HEAD
             "version": "v1.13.0",
             "source": {
                 "type": "git",
@@ -6044,6 +6096,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/c4388410e2fb6321e77c5dd6e3cb2dba821f9fe6",
                 "reference": "c4388410e2fb6321e77c5dd6e3cb2dba821f9fe6",
+=======
+            "version": "v1.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/maker-bundle.git",
+                "reference": "201d0e050dca336c44f93657ce1f34f3b3868432"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/201d0e050dca336c44f93657ce1f34f3b3868432",
+                "reference": "201d0e050dca336c44f93657ce1f34f3b3868432",
+>>>>>>> a60262b8397615ecf3489222d5a99739acb1b495
                 "shasum": ""
             },
             "require": {
@@ -6098,6 +6162,7 @@
                 "scaffold",
                 "scaffolding"
             ],
+<<<<<<< HEAD
             "time": "2019-08-18T17:34:03+00:00"
         },
         {
@@ -6112,6 +6177,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/3b1ab2e027d7c5af0e693c4a5b4ba5d407f1814d",
                 "reference": "3b1ab2e027d7c5af0e693c4a5b4ba5d407f1814d",
+=======
+            "time": "2019-07-09T22:19:18+00:00"
+        },
+        {
+            "name": "symfony/phpunit-bridge",
+            "version": "v4.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/phpunit-bridge.git",
+                "reference": "5a7b67f3c407ad8199cedb10f71a36ab5ccd44ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/5a7b67f3c407ad8199cedb10f71a36ab5ccd44ac",
+                "reference": "5a7b67f3c407ad8199cedb10f71a36ab5ccd44ac",
+>>>>>>> a60262b8397615ecf3489222d5a99739acb1b495
                 "shasum": ""
             },
             "require": {
@@ -6163,7 +6244,11 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
             "time": "2019-08-20T14:27:59+00:00"
+=======
+            "time": "2019-07-18T13:23:37+00:00"
+>>>>>>> a60262b8397615ecf3489222d5a99739acb1b495
         },
         {
             "name": "symfony/test-pack",
